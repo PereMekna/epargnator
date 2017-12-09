@@ -1,6 +1,10 @@
 class Period {
 	constructor(days) {
-		this._days = days;
+		if (days !== undefined) {
+			this._days = days;
+		} else {
+			this._days = [];
+		}
 	}
 
 	getDays() {
@@ -12,7 +16,11 @@ class Period {
 	}
 
 	push(day) {
-		this._days.push(day);
+		if (this._days.length === 0) {
+			this._days[0] = day;
+		} else {
+			this._days.push(day);
+		}
 	}
 }
 

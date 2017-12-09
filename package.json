@@ -1,0 +1,29 @@
+{
+  "name": "muda",
+  "version": "0.0.4",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PereMekna/epargnator.git"
+  },
+  "author": "Louis Dupont",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PereMekna/epargnator/issues"
+  },
+  "homepage": "https://github.com/PereMekna/epargnator#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chart.js": "^2.7.1",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

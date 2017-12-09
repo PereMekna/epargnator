@@ -3,7 +3,7 @@ class Epargnator {
 		this._period = period;
 		this._projects = projects;
 		this._accounts = accounts;
-		this._amounts = {};
+		this._amounts = [];
 	}
 
 	getAllAmounts() {
