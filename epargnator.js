@@ -8,9 +8,7 @@ class Epargnator {
 
 	getAllAmounts() {
 		let reportNextMonth = 0;
-		for (let dayIndex in this.getDays()) {
-			let day = this.getDay(dayIndex);
-
+		for (let day of this.getDays()) {
 			let balance = day.getAvailableMoney();
 			this._accounts.addAmountToCurrent(balance);
 
@@ -59,8 +57,7 @@ class Epargnator {
 	getMonthlyAmount(order) {
 		if (this.isDayInPeriod(order)) {
 			let monthlyAmount = 0;
-			for (let projectIndex in this._projects) {
-				let project = this._projects[projectIndex];
+			for (let project of this._projects) {
 				if (order <= project.getOrder()) {
 					monthlyAmount += project.getAmount() / (project.getDate().getUTCMonth() - this.getLowestOrder());
 				}
@@ -71,8 +68,7 @@ class Epargnator {
 	}
 
 	isDayInPeriod(order) {
-		for (let dayIndex in this.getDays()) {
-			let day = this.getDay(dayIndex);
+		for (let day of this.getDays()) {
 			if (day.getOrder() === order) {
 				return true;
 			}
@@ -89,8 +85,7 @@ class Epargnator {
 
 	getLowestOrder() {
 		let lowest = Infinity;
-		for (let dayIndex in this.getDays()) {
-			let day = this.getDays()[dayIndex];
+		for (let day of this.getDays()) {
 			if (day.getOrder() < lowest) {
 				lowest = day.getOrder();
 			}
@@ -100,8 +95,7 @@ class Epargnator {
 
 	getProjectsByDay(order) {
 		var projects = [];
-		for (let projectIndex in this._projects) {
-			let project = this._projects[projectIndex];
+		for (let project of this._projects) {
 			if (project.getOrder() === order) {
 				projects.push(project);
 			}
@@ -112,8 +106,7 @@ class Epargnator {
 	handleProjectsInDay(order) {
 		let amountToWithdraw = 0;
 		let projects = this.getProjectsByDay(order);
-		for (let projectIndex in projects) {
-			let project = projects[projectIndex];
+		for (let project of projects) {
 			amountToWithdraw += project.getAmount();
 		}
 		return amountToWithdraw;
